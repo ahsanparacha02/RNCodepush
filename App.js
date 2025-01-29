@@ -31,14 +31,15 @@ const App = () => {
   };
 
   useEffect(() => {
-    sync = async () => {
+    const sync = async () => {
       CodePush.notifyAppReady();
       const update = await CodePush.checkForUpdate();
-
+      debugger;
       if (update) {
         syncCodePush();
       }
     };
+    sync();
   }, []);
   const syncCodePush = () => {
     CodePush.sync(
